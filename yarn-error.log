@@ -1,0 +1,61 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  10.13.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: EACCES: permission denied, mkdir '/home/kourmanalieva/Bureau/SportApp/projet/sportApp-nodejs/node_modules/aproba'
+
+npm manifest: 
+  {
+    "name": "express-postgres-starter",
+    "scripts": {
+      "test": "xo",
+      "lint": "xo",
+      "format": "xo --fix",
+      "start": "node -r dotenv/config ./bin/www",
+      "dev": "nodemon -r dotenv/config ./bin/www",
+      "migrate": "node ./bin/migrate.js",
+      "migrate:create": "migrate create --migrations-dir='./src/migrations'"
+    },
+    "dependencies": {
+      "bcrypt": "^3.0.6",
+      "body-parser": "^1.19.0",
+      "client-sessions": "^0.8.0",
+      "cookie-parser": "^1.4.4",
+      "express": "^4.16.4",
+      "helmet": "^3.16.0",
+      "morgan": "^1.9.1",
+      "pg": "^7.9.0",
+      "sequelize": "^5.21.5",
+      "sequelize-cli": "^5.5.1",
+      "serve-favicon": "^2.5.0",
+      "sql-template-strings": "^2.2.2",
+      "uuid": "^3.3.2"
+    },
+    "devDependencies": {
+      "dotenv": "^8.2.0",
+      "nodemon": "^1.18.11",
+      "xo": "^0.24.0"
+    },
+    "xo": {
+      "prettier": true,
+      "space": true
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
