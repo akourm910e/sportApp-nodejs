@@ -1,17 +1,36 @@
 {
-  "name": "application-name",
-  "version": "0.0.1",
-  "private": true,
+  "name": "express-postgres-starter",
   "scripts": {
-    "start": "nodejs ./bin/www"
+    "test": "xo",
+    "lint": "xo",
+    "format": "xo --fix",
+    "start": "node -r dotenv/config ./bin/www",
+    "dev": "nodemon -r dotenv/config ./bin/www",
+    "migrate": "node ./bin/migrate.js",
+    "migrate:create": "migrate create --migrations-dir='./src/migrations'"
   },
   "dependencies": {
-    "express": "~4.0.0",
-    "static-favicon": "~1.0.0",
-    "morgan": "~1.0.0",
-    "cookie-parser": "~1.0.1",
-    "body-parser": "~1.0.0",
-    "debug": "~0.7.4",
-    "jade": "~1.3.0"
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "client-sessions": "^0.8.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "helmet": "^3.16.0",
+    "morgan": "^1.9.1",
+    "pg": "^7.9.0",
+    "sequelize": "^5.21.5",
+    "sequelize-cli": "^5.5.1",
+    "serve-favicon": "^2.5.0",
+    "sql-template-strings": "^2.2.2",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^1.18.11",
+    "xo": "^0.24.0"
+  },
+  "xo": {
+    "prettier": true,
+    "space": true
   }
 }

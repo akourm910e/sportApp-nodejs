@@ -1,12 +1,17 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('static-favicon');
+// var favicon = require('serve-favicon');
+require('dotenv').config()
+
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var morgan = require('morgan');
+// var clientSession = require('client-sessions');
+var helmet = require('helmet');
 
 var app = express();
 
@@ -14,12 +19,28 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(favicon());
+// app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+
+app.use(morgan('short'));
+// app.use(express.json());
+// app.use(
+//   clientSession({
+//     cookieName: 'session',
+//     secret: SESSION_SECRET,
+//     duration: 24 * 60 * 60 * 1000
+//   })
+// );
+
+app.use(helmet());
+
 
 app.use('/', routes);
 app.use('/users', users);
@@ -53,10 +74,6 @@ app.use(function(err, req, res, next) {
         message: err.message,
         error: {}
     });
-});
-
-app.listen(config.get('port'), () => {
-    console.log((config.get('projectName') + " is running at http://localhost:" + config.get('port')).green);
 });
 
 
