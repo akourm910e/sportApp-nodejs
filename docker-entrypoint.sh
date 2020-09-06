@@ -1,2 +1,2 @@
 echo "Apply database migrations"
-sequelize db:migrate
+# sequelize db:migrate

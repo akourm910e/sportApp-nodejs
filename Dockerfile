@@ -3,11 +3,9 @@ FROM node:10
 WORKDIR /sportApp-nodejs
 
 COPY ./package.json .
-COPY ./package-lock.json .
+COPY ./yarn.lock .
 
-RUN npm install -g sequelize-cli
-
-RUN npm install
+RUN yarn
 
 COPY . .
 

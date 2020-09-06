@@ -9,24 +9,11 @@ services:
       - "35432:5432"
 
     environment:
-      POSTGRES_USER: superuser
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: db
-    networks:
-      - db-network
+      POSTGRES_DB: db_dev
+        
     restart: always
-
-  db-pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "antoine.kour@gmail.com"
-      PGADMIN_DEFAULT_PASSWORD: "toto"
-    ports:
-      - "16543:80"
-    depends_on:
-      - db
-    networks:
-      - db-network
 
   backend:
     build: .
@@ -39,12 +26,8 @@ services:
     ports:
       - "3000:3000"
     command: npm run dev
-    command: ["/bin/bash", "./docker-entrypoint.sh"]
+    # command: ["/bin/bash", "./docker-entrypoint.sh"]
     volumes:
       - .:/sportApp-nodejs/
       - /sportApp-nodejs/node_modules
 
-
-networks: 
-  db-network:
-    driver: bridge
