@@ -11,7 +11,7 @@
     "migrate:create": "migrate create --migrations-dir='./src/migrations'"
   },
   "dependencies": {
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
     "client-sessions": "^0.8.0",
